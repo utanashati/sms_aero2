@@ -17,13 +17,13 @@ module SmsAero2
       uri.query = URI.encode_www_form(params)
 
       response = send_request(uri)
-      logger.info(
+      logger&.info(
           "Send http request to GET #{url} with params: #{params}"
       )
       response_body(response)
 
     rescue SmsAero2::Error => e
-      logger.error("http request to #{url} with params: #{params} is failed message: #{e.message}")
+      logger&.error("http request to #{url} with params: #{params} is failed message: #{e.message}")
       raise e
     end
 
@@ -31,7 +31,7 @@ module SmsAero2
 
     def send_request(uri)
       request = Net::HTTP::Get.new(uri)
-      request.basic_auth(client.login, client.api_key)
+      request.basic_auth(client.login, client.api_token)
       request['Content-Type'] = 'application/json'
       Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
         http.request(request)
