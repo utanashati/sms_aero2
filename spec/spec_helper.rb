@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "sms_aero2"
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
