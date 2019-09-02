@@ -1,7 +1,7 @@
 RSpec.describe SmsAero::Request do
   describe "#call" do
     subject(:send_request) { described_class.new(client).call(url, params) }
-    let(:client) { double(:client, logger: nil, login: 'foo', api_key: 'foo') }
+    let(:client) { double(:client, logger: nil, login: 'foo', api_token: 'foo') }
     let(:url) { 'https://somehost.org' }
     let(:params) { {id: 123} }
     let(:body) { Hash[status: :ok].to_json }
