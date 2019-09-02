@@ -1,13 +1,13 @@
 require 'logger'
-require "sms_aero2/error"
-require "sms_aero2/version"
-require "sms_aero2/request"
-require "sms_aero2/result"
-require "sms_aero2/hlr_result"
-require "sms_aero2/operation"
-require "sms_aero2/hlr_operation"
+require "sms_aero/error"
+require "sms_aero/version"
+require "sms_aero/request"
+require "sms_aero/result"
+require "sms_aero/hlr_result"
+require "sms_aero/operation"
+require "sms_aero/hlr_operation"
 
-module SmsAero2
+module SmsAero
   class Client
     attr_accessor :login, :api_token, :logger
 
@@ -26,7 +26,7 @@ module SmsAero2
     # with a paid signature of the sender.
     def send_sms(to:, from:, text:, channel:, **options)
       if %w[info digital international direct service].include?(channel)
-        SmsAero2::Operation.new(
+        SmsAero::Operation.new(
             request, 'sms/send',
             number: to, sign: from, text: text, channel: channel.upcase, **options
         ).call
@@ -36,17 +36,17 @@ module SmsAero2
     end
 
     def hlr_status(id:)
-      SmsAero2::HlrOperation.new(request, 'hlr/status',  id: id).call
+      SmsAero::HlrOperation.new(request, 'hlr/status', id: id).call
     end
 
     def hlr(phone:)
-      SmsAero2::HlrOperation.new(request, 'hlr/check', number: phone).call
+      SmsAero::HlrOperation.new(request, 'hlr/check', number: phone).call
     end
 
     private
 
     def request
-      @request ||= SmsAero2::Request.new(self)
+      @request ||= SmsAero::Request.new(self)
     end
   end
 end

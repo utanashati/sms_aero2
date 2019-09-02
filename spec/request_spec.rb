@@ -1,4 +1,4 @@
-RSpec.describe SmsAero2::Request do
+RSpec.describe SmsAero::Request do
   describe "#call" do
     subject(:send_request) { described_class.new(client).call(url, params) }
     let(:client) { double(:client, logger: nil, login: 'foo', api_key: 'foo') }
@@ -20,7 +20,7 @@ RSpec.describe SmsAero2::Request do
       let(:status) { 400 }
 
       it "raises error" do
-        expect { subject }.to raise_error(SmsAero2::Request::HttpError)
+        expect { subject }.to raise_error(SmsAero::Request::HttpError)
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe SmsAero2::Request do
       let(:body) { 'Not found' }
 
       it "raises error" do
-        expect { subject }.to raise_error(SmsAero2::Request::InvalidResponse)
+        expect { subject }.to raise_error(SmsAero::Request::InvalidResponse)
       end
     end
   end

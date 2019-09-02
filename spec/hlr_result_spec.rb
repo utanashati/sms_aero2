@@ -1,4 +1,4 @@
-RSpec.describe SmsAero2::HlrResult do
+RSpec.describe SmsAero::HlrResult do
   subject(:build_result) { described_class.new(response) }
   let(:response) do
     {

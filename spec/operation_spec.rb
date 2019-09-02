@@ -1,4 +1,4 @@
-RSpec.describe SmsAero2::Operation do
+RSpec.describe SmsAero::Operation do
   describe "#call" do
     subject(:call_operation) { described_class.new(request, 'some_url', foo: :baz).call }
 
@@ -22,12 +22,12 @@ RSpec.describe SmsAero2::Operation do
     end
 
     it 'returns result' do
-      expect(subject).to an_instance_of(SmsAero2::Result)
+      expect(subject).to an_instance_of(SmsAero::Result)
     end
 
     it 'create result with response' do
-      allow(SmsAero2::Result).to receive(:new)
-      expect(SmsAero2::Result).to receive(:new).with(body)
+      allow(SmsAero::Result).to receive(:new)
+      expect(SmsAero::Result).to receive(:new).with(body)
       call_operation
     end
   end

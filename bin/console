@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "sms_aero2"
+require "sms_aero"
 
 require "pry"
 Pry.start

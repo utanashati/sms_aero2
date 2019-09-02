@@ -1,3 +1,3 @@
-module SmsAero2
+module SmsAero
   class Error < StandardError; end
 end

@@ -1,10 +1,10 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "sms_aero2/version"
+require "sms_aero/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "sms_aero2"
-  spec.version       = SmsAero2::VERSION
+  spec.name          = "sms_aero"
+  spec.version       = SmsAero::VERSION
   spec.authors       = ["Alexander Shvaykin"]
   spec.email         = ["skiline.alex@gmail.com"]
 

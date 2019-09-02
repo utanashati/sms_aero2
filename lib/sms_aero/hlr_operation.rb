@@ -1,9 +1,9 @@
-module SmsAero2
+module SmsAero
   class HlrOperation < Operation
     private
 
     def result_class
-      SmsAero2::HlrResult
+      SmsAero::HlrResult
     end
   end
 end
