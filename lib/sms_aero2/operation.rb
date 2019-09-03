@@ -1,4 +1,4 @@
-module SmsAero
+module SmsAero2
   class Operation
     BASE_URL = 'https://gate.smsaero.ru/v2/'.freeze
     attr_reader :request, :action_path, :params
@@ -20,7 +20,7 @@ module SmsAero
     end
 
     def result_class
-      SmsAero::Result
+      SmsAero2::Result
     end
   end
 end

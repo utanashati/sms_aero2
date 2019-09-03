@@ -1,4 +1,4 @@
-module SmsAero
+module SmsAero2
   class Result
     attr_reader :response
 

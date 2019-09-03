@@ -1,9 +1,9 @@
 require 'json'
 
-module SmsAero
+module SmsAero2
   class Request
-    class HttpError < SmsAero::Error; end
-    class InvalidResponse < SmsAero::Error; end
+    class HttpError < SmsAero2::Error; end
+    class InvalidResponse < SmsAero2::Error; end
 
     attr_reader :client, :logger
 
@@ -22,7 +22,7 @@ module SmsAero
       )
       response_body(response)
 
-    rescue SmsAero::Error => e
+    rescue SmsAero2::Error => e
       logger&.error("http request to #{url} with params: #{params} is failed message: #{e.message}")
       raise e
     end

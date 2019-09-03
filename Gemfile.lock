@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sms_aero (0.1.0)
+    sms_aero2 (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -46,7 +46,7 @@ DEPENDENCIES
   pry
   rake (~> 10.0)
   rspec (~> 3.0)
-  sms_aero!
+  sms_aero2!
   webmock
 
 BUNDLED WITH

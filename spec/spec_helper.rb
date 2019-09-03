@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "sms_aero"
+require "sms_aero2"
 require 'webmock/rspec'
 
 RSpec.configure do |config|

@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sms_aero'
+gem 'sms_aero2'
 ```
 
 And then execute:

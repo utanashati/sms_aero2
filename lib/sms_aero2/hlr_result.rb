@@ -1,4 +1,4 @@
-module SmsAero
+module SmsAero2
   class HlrResult < Result
     def id
       data.fetch('id')
