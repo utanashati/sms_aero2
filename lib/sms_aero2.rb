@@ -25,9 +25,10 @@ module SmsAero2
     # 'service' Service channel for sending service SMS according to the approved template
     # with a paid signature of the sender.
     def send_sms(to:, from:, text:, channel:, **options)
+      path = options[:testsend] ? 'sms/testsend' : 'sms/send'
       if %w[info digital international direct service].include?(channel)
         SmsAero2::Operation.new(
-            request, 'sms/send',
+            request, path,
             number: to, sign: from, text: text, channel: channel.upcase, **options
         ).call
       else
