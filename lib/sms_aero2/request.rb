@@ -31,7 +31,7 @@ module SmsAero2
 
     def send_request(uri)
       request = Net::HTTP::Get.new(uri)
-      request.basic_auth(client.login, client.api_token)
+      request.basic_auth(client.login, client.token)
       request['Content-Type'] = 'application/json'
       Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
         http.request(request)

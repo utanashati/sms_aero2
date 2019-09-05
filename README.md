@@ -19,7 +19,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-client = SmsAero2::Client.new(login: 'some_email@example.com', api_token: 'some_token', logger: SomeLogger)
+client = SmsAero2::Client.new(login: 'some_email@example.com', token: 'some_token', logger: SomeLogger)
 
 client.send_sms(to: 79998887766, from: 'SomeCompany', text:'Hello World!', channel: :international)
 client.hlr_status(id: '1234')

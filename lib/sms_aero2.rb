@@ -9,11 +9,11 @@ require "sms_aero2/hlr_operation"
 
 module SmsAero2
   class Client
-    attr_accessor :login, :api_token, :logger
+    attr_accessor :login, :token, :logger
 
-    def initialize(login:, api_token:, logger: nil)
+    def initialize(login:, token:, logger: nil)
       @login = login
-      @api_token = api_token
+      @token = token
       @logger = logger
     end
 
@@ -26,7 +26,7 @@ module SmsAero2
     # with a paid signature of the sender.
     def send_sms(to:, from:, text:, channel:, **options)
       path = options[:testsend] ? 'sms/testsend' : 'sms/send'
-      if %w[info digital international direct service].include?(channel)
+      if %w[info digital international direct service].include?(channel.to_s)
         SmsAero2::Operation.new(
             request, path,
             number: to, sign: from, text: text, channel: channel.upcase, **options
