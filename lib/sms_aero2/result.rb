@@ -14,8 +14,6 @@ module SmsAero2
       response.fetch('message')
     end
 
-    private
-
     def data
       response.fetch('data')
     end
