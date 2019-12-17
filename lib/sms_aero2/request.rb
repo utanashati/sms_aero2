@@ -2,7 +2,9 @@ require 'json'
 
 module SmsAero2
   class Request
-    class HttpError < SmsAero2::Error; end
+    class HttpError < SmsAero2::Error
+      attr_accessor :status
+    end
     class InvalidResponse < SmsAero2::Error; end
 
     attr_reader :client, :logger
@@ -43,7 +45,9 @@ module SmsAero2
       if response.is_a?(Net::HTTPSuccess)
         JSON.parse(body)
       else
-        raise HttpError, "server return error code: #{response.code} response: #{body}"
+        error = HttpError.new("server return error code: #{response.code} response: #{body}")
+        error.status = response.code
+        raise error
       end
     rescue JSON::ParserError
       raise InvalidResponse, "server return invalid response: #{body}"

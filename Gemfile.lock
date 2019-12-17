@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sms_aero2 (0.1.0)
+    sms_aero2 (0.1.2)
 
 GEM
   remote: https://rubygems.org/
