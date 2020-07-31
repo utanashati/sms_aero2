@@ -17,7 +17,7 @@ RSpec.describe SmsAero2::Request do
     end
 
     context 'with server error' do
-      let(:status) { 400 }
+      let(:status) { 500 }
 
       it "raises error" do
         expect { subject }.to raise_error(SmsAero2::Request::HttpError)

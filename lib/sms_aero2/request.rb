@@ -42,7 +42,7 @@ module SmsAero2
 
     def response_body(response)
       body = response.read_body
-      if response.is_a?(Net::HTTPSuccess)
+      if response.code.to_s.match?(/2|4[0-9]{2}/)
         JSON.parse(body)
       else
         error = HttpError.new("server return error code: #{response.code} response: #{body}")
