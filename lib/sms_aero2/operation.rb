@@ -10,7 +10,7 @@ module SmsAero2
     end
 
     def call
-      result_class.new(request.call(url, params))
+      result_class.new(request.call(url, **params))
     end
 
     private
